@@ -2,7 +2,7 @@ var http = require('http');
 
 function onRequest(request, response){
   console.log("A user made a request" + request.url);
-  response.writeHead()
+  response.end("Hallo Pisser");
 }
 
 http.createServer(onRequest).listen(80);
