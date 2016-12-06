@@ -1,9 +1,19 @@
-var http = require('http')
+var http = require('http');
+var fs = require('fs');
 
-var server = http.createServer(function(req, res){
-  res.statusCode = 200;
-  res.end(index.html);
-});
-server.listen(10, function(){
-  console.log("Server running at http://localhost;10");
-})
+
+
+function onRequest(request, response){
+  console.log("A user made a request" + request.url);
+  response.end("Hallo Pisser");
+}
+
+function onRequest(request, response){
+  if(request.method == 'GET' && request.url == '/'){
+    response.writeHead(200, {"Content-Type": "text/html"});
+    fs.createReadStream("./index.html").pipe(response);
+  }
+}
+
+http.createServer(onRequest).listen(80);
+console.log("Server is running");
