@@ -1,8 +1,17 @@
 var express = require('express');
 var app = express();
 
+var requestTime = function (req, res, next){
+  req.requestTime = Date.now();
+  next();
+}
+
+app.use(requestTime);
+
 app.get('/', function (req, res) {
-  res.send("Heute ist der ");
+  var responseText='Date: ';
+  responseText += req.requestTime + '';
+  res.send(responseText);
 })
 
 app.listen(3000, function() {
