@@ -1,16 +1,11 @@
 var express = require('express');
 var app = express();
 
-var requestTime = function (req, res, next){
-  req.requestTime = Date.now();
-  next();
-}
-
-app.use(requestTime);
+var now = new Date();
+var jsonDate = now.toJSON();
 
 app.get('/', function (req, res) {
-  var responseText='Date: ';
-  responseText += req.requestTime + '';
+  var responseText='Date: ' + jsonDate;
   res.send(responseText);
 })
 
