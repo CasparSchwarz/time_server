@@ -5,7 +5,7 @@ var now = new Date();
 var jsonDate = now.toJSON();
 
 app.get('/', function (req, res) {
-  var responseText='Date: ' + jsonDate;
+  var responseText='Date: ' + jsonDate + ' Heute ist ein schöner Tag';
   res.send(responseText);
 })
 
