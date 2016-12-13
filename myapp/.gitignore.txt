@@ -1,0 +1,3 @@
+#	node_modules is ignored:
+node_modules
+node_modules/**
