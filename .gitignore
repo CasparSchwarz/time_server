@@ -1,0 +1,16 @@
+#node_modules is ignored:
+node_modules
+
+#logs are ignored:
+logs
+*.log
+
+#compressed files are ignored:
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
